@@ -1,0 +1,56 @@
+[project]
+name = "moneymaker"
+version = "0.1.0"
+description = "Master Corporate Financial Analysis & Multi-Agent Stock Market System (IDX/BEI & Global)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "google-genai>=1.0.0",
+    "httpx>=0.27.0",
+    "langchain>=1.0.0",
+    "langchain-core>=1.0.0",
+    "langchain-google-genai>=4.0.0",
+    "langgraph>=1.0.0",
+    "langgraph-checkpoint-sqlite>=3.0.0",
+    "numpy>=2.2.0",
+    "openpyxl>=3.1.0",
+    "pandas>=2.2.0",
+    "pdfplumber>=0.11.0",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.7.0",
+    "pypdf>=5.0.0",
+    "python-dotenv>=1.0.0",
+    "rich>=13.9.0",
+    "scikit-learn>=1.5.0",
+    "scipy>=1.14.0",
+    "statsmodels>=0.14.0",
+    "ta>=0.11.0",
+    "tabulate>=0.9.0",
+    "yfinance>=1.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.25.0",
+    "ruff>=0.8.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/moneymaker"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

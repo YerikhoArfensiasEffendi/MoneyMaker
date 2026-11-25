@@ -1,0 +1,3 @@
+{
+  "install": "export PATH=\"/opt/pipx/bin:$HOME/.local/bin:$PATH\" && sed -i '/case \\$- in/,/esac/d' ~/.bashrc 2>/dev/null || true && uv sync --frozen --no-progress && VENV_BIN=\"$(pwd)/.venv/bin\" && (grep -qxF \"export PATH=\\\"$VENV_BIN:\\$PATH\\\"\" ~/.bashrc || echo \"export PATH=\\\"$VENV_BIN:\\$PATH\\\"\" >> ~/.bashrc)"
+}
